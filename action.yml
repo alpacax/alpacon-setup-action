@@ -1,0 +1,27 @@
+name: 'Setup Alpacon CLI'
+description: 'Installs and logs into Alpacon CLI. Should be run once per job.'
+author: sangyeong01
+
+branding:
+  icon: 'terminal'
+  color: 'blue'
+
+inputs:
+  workspace-url:
+    description: 'Your AlpacaX workspace URL.'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install
+      run: |
+        if ! command -v alpacon &> /dev/null
+        then
+          echo "alpacon-cli not found. Installing..."
+          curl -s https://packagecloud.io/install/repositories/alpacax/alpacon/script.deb.sh?any=true | sudo bash
+          sudo apt-get -y install alpacon
+        else
+          echo "alpacon-cli is already installed."
+        fi
+      shell: bash
