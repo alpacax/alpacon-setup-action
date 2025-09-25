@@ -1,0 +1,48 @@
+name: Test Alpacon Setup Action
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-installation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Test Alpacon CLI Installation
+        uses: ./
+
+      - name: Verify Alpacon CLI Installation
+        run: |
+          if command -v alpacon &> /dev/null; then
+            echo "✅ Alpacon CLI installed successfully"
+            alpacon --help
+          else
+            echo "❌ Alpacon CLI installation failed"
+            exit 1
+          fi
+        shell: bash
+
+  test-already-installed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Pre-install Alpacon CLI (simulate already installed)
+        run: |
+          curl -s https://packagecloud.io/install/repositories/alpacax/alpacon/script.deb.sh?any=true | sudo bash
+          sudo apt-get -y install alpacon
+        shell: bash
+
+      - name: Test Setup Action with Pre-installed CLI
+        uses: ./
+
+      - name: Verify CLI Still Works
+        run: |
+          alpacon --help
+        shell: bash

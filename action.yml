@@ -1,0 +1,24 @@
+name: 'Setup Alpacon CLI'
+description: 'Installs Alpacon CLI. Should be run once per job before other Alpacon actions.'
+author: sangyeong01
+
+branding:
+  icon: 'terminal'
+  color: 'blue'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install Alpacon CLI
+      run: |
+        if ! command -v alpacon &> /dev/null
+        then
+          echo "🔧 Alpacon CLI not found. Installing..."
+          curl -s https://packagecloud.io/install/repositories/alpacax/alpacon/script.deb.sh?any=true | sudo bash
+          sudo apt-get update
+          sudo apt-get -y install alpacon
+          echo "✅ Alpacon CLI installed successfully"
+        else
+          echo "✅ Alpacon CLI is already installed"
+        fi
+      shell: bash
