@@ -11,7 +11,7 @@ This GitHub Action installs the Alpacon CLI in your workflow environment.
 - Installs Alpacon CLI automatically in your workflow
 - Skips installation if CLI is already present
 
-## Usage Example (workflow)
+## Usage examples
 
 ```yaml
 jobs:
