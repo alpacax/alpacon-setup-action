@@ -11,6 +11,10 @@ This GitHub Action installs the Alpacon CLI in your workflow environment.
 - Installs Alpacon CLI automatically in your workflow
 - Skips installation if CLI is already present
 
+## Supported runners
+
+- `ubuntu-latest` (and other Ubuntu-based runners)
+
 ## Usage examples
 
 ```yaml
@@ -22,10 +26,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Alpacon CLI
-        uses: alpacax/alpacon-setup-action@v1.0.0
+        uses: alpacax/alpacon-setup-action@v1
 
       - name: Use other Alpacon actions
-        uses: alpacax/alpacon-cp-action@v1.0.0
+        uses: alpacax/alpacon-cp-action@v1
         with:
           workspace-url: ${{ secrets.ALPACON_WORKSPACE_URL }}
           api-token: ${{ secrets.ALPACON_API_TOKEN }}
@@ -35,6 +39,20 @@ jobs:
 ## Inputs
 
 This action requires no inputs.
+
+## Troubleshooting
+
+| Problem | Cause | Fix |
+|---------|-------|-----|
+| `alpacon: command not found` | Installation failed or PATH issue | Check runner is Ubuntu-based; re-run the workflow |
+| `apt-get` errors | Network or repository issue | Check GitHub Actions runner has internet access |
+| Action passes but CLI missing | Step ordering issue | Ensure setup action runs before other Alpacon actions |
+
+## Related actions
+
+- [alpacon-common-action](https://github.com/alpacax/alpacon-common-action) — Run any Alpacon CLI command
+- [alpacon-cp-action](https://github.com/alpacax/alpacon-cp-action) — Copy files to/from remote servers
+- [alpacon-websh-action](https://github.com/alpacax/alpacon-websh-action) — Execute shell commands on remote servers
 
 ## Notes
 

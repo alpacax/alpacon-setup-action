@@ -11,10 +11,11 @@ runs:
   steps:
     - name: Install Alpacon CLI
       run: |
+        set -e
         if ! command -v alpacon &> /dev/null
         then
           echo "🔧 Alpacon CLI not found. Installing..."
-          curl -s https://packagecloud.io/install/repositories/alpacax/alpacon/script.deb.sh?any=true | sudo bash
+          curl -sS https://packagecloud.io/install/repositories/alpacax/alpacon/script.deb.sh?any=true | sudo bash
           sudo apt-get update
           sudo apt-get -y install alpacon
           echo "✅ Alpacon CLI installed successfully"
