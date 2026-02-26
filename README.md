@@ -1,5 +1,3 @@
-
-
 # Alpacon Setup Action
 
 This GitHub Action installs the Alpacon CLI in your workflow environment.
