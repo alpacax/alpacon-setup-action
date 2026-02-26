@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: read
+
 jobs:
   test-installation:
     runs-on: ubuntu-latest
@@ -18,6 +21,7 @@ jobs:
 
       - name: Verify Alpacon CLI Installation
         run: |
+          set -e
           if command -v alpacon &> /dev/null; then
             echo "✅ Alpacon CLI installed successfully"
             alpacon --help
@@ -35,7 +39,8 @@ jobs:
 
       - name: Pre-install Alpacon CLI (simulate already installed)
         run: |
-          curl -s https://packagecloud.io/install/repositories/alpacax/alpacon/script.deb.sh?any=true | sudo bash
+          set -e
+          curl -sS https://packagecloud.io/install/repositories/alpacax/alpacon/script.deb.sh?any=true | sudo bash
           sudo apt-get -y install alpacon
         shell: bash
 
@@ -44,5 +49,6 @@ jobs:
 
       - name: Verify CLI Still Works
         run: |
+          set -e
           alpacon --help
         shell: bash
