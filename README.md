@@ -52,6 +52,17 @@ This action requires no inputs.
 - [alpacon-cp-action](https://github.com/alpacax/alpacon-cp-action) — Copy files to/from remote servers
 - [alpacon-websh-action](https://github.com/alpacax/alpacon-websh-action) — Execute shell commands on remote servers
 
+## Releasing
+
+When creating a new release, always update the `v1` major version tag:
+
+```bash
+git tag -f v1 v1.x.0
+git push origin v1 --force
+```
+
+This ensures users referencing `@v1` automatically get the latest release.
+
 ## Notes
 
 - This action only installs the Alpacon CLI
