@@ -4,7 +4,7 @@
 
 Install the [Alpacon](https://alpacon.io) CLI in your GitHub Actions workflow — the first step for automating server management directly from CI/CD.
 
-- Official Docs: [alpacon-setup-action reference](https://docs.alpacax.com/reference/actions/setup/)
+- [Official documentation](https://docs.alpacax.com/reference/actions/setup/)
 
 ## Why use this action?
 
