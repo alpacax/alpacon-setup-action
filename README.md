@@ -24,10 +24,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Alpacon CLI
-        uses: alpacax/alpacon-setup-action@v1.1.0
+        uses: alpacax/alpacon-setup-action@v1
 
       - name: Use other Alpacon actions
-        uses: alpacax/alpacon-cp-action@v1.2.0
+        uses: alpacax/alpacon-cp-action@v1
         with:
           workspace-url: ${{ secrets.ALPACON_WORKSPACE_URL }}
           api-token: ${{ secrets.ALPACON_API_TOKEN }}
