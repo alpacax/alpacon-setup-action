@@ -2,15 +2,15 @@
 
 [![GitHub marketplace](https://img.shields.io/badge/marketplace-setup--alpacon--cli-blue?logo=github)](https://github.com/marketplace/actions/setup-alpacon-cli)
 
-Install the [Alpacon](https://alpacon.io) CLI in your GitHub Actions workflow — the first step for automating server management directly from CI/CD.
+Install the [Alpacon](https://alpacon.io) CLI in your GitHub Actions workflow—the first step for automating server management directly from CI/CD.
 
 - [Official documentation](https://docs.alpacax.com/reference/actions/setup/)
 
 ## Why use this action?
 
-- **Zero SSH keys** — Authenticate with API tokens instead of managing SSH keys across repos and servers
-- **One-line setup** — A single step installs the CLI; no manual downloads or version pinning needed
-- **Idempotent** — Skips installation if the CLI is already present, keeping workflows fast
+- **Zero SSH keys**—Authenticate with a service token instead of managing SSH keys across repos and servers
+- **One-line setup**—A single step installs the CLI; no manual downloads or version pinning needed
+- **Idempotent**—Skips installation if the CLI is already present, keeping workflows fast
 
 ## Usage
 
@@ -25,10 +25,10 @@ jobs:
         uses: alpacax/alpacon-setup-action@v1
 
       - name: Deploy application
-        uses: alpacax/alpacon-websh-action@v1
+        uses: alpacax/alpacon-exec-action@v2
         with:
           workspace-url: ${{ secrets.ALPACON_WORKSPACE_URL }}
-          api-token: ${{ secrets.ALPACON_API_TOKEN }}
+          service-token: ${{ secrets.ALPACON_SERVICE_TOKEN }}
           target: 'prod-server'
           script: |
             cd /opt/myapp
@@ -55,9 +55,9 @@ This action requires no inputs.
 
 ## Related actions
 
-- [alpacon-websh-action](https://github.com/alpacax/alpacon-websh-action) — Execute shell commands on remote servers
-- [alpacon-cp-action](https://github.com/alpacax/alpacon-cp-action) — Copy files to/from remote servers
-- [alpacon-common-action](https://github.com/alpacax/alpacon-common-action) — Run any Alpacon CLI command
+- [alpacon-exec-action](https://github.com/alpacax/alpacon-exec-action)—Execute shell commands on remote servers
+- [alpacon-cp-action](https://github.com/alpacax/alpacon-cp-action)—Copy files to/from remote servers
+- [alpacon-common-action](https://github.com/alpacax/alpacon-common-action)—Run any Alpacon CLI command
 
 ## Resources
 
