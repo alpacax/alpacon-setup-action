@@ -25,7 +25,7 @@ jobs:
         uses: alpacax/alpacon-setup-action@v1
 
       - name: Deploy application
-        uses: alpacax/alpacon-websh-action@v1
+        uses: alpacax/alpacon-exec-action@v1
         with:
           workspace-url: ${{ secrets.ALPACON_WORKSPACE_URL }}
           api-token: ${{ secrets.ALPACON_API_TOKEN }}
@@ -55,7 +55,7 @@ This action requires no inputs.
 
 ## Related actions
 
-- [alpacon-websh-action](https://github.com/alpacax/alpacon-websh-action) — Execute shell commands on remote servers
+- [alpacon-exec-action](https://github.com/alpacax/alpacon-exec-action) — Execute shell commands on remote servers
 - [alpacon-cp-action](https://github.com/alpacax/alpacon-cp-action) — Copy files to/from remote servers
 - [alpacon-common-action](https://github.com/alpacax/alpacon-common-action) — Run any Alpacon CLI command
 
