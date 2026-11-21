@@ -8,9 +8,9 @@ Install the [Alpacon](https://alpacon.io) CLI in your GitHub Actions workflow �
 
 ## Why use this action?
 
-- **Zero SSH keys** — Authenticate with API tokens instead of managing SSH keys across repos and servers
-- **One-line setup** — A single step installs the CLI; no manual downloads or version pinning needed
-- **Idempotent** — Skips installation if the CLI is already present, keeping workflows fast
+- **Zero SSH keys**—Authenticate with a service token instead of managing SSH keys across repos and servers
+- **One-line setup**—A single step installs the CLI; no manual downloads or version pinning needed
+- **Idempotent**—Skips installation if the CLI is already present, keeping workflows fast
 
 ## Usage
 
@@ -25,10 +25,10 @@ jobs:
         uses: alpacax/alpacon-setup-action@v1
 
       - name: Deploy application
-        uses: alpacax/alpacon-exec-action@v1
+        uses: alpacax/alpacon-exec-action@v2
         with:
           workspace-url: ${{ secrets.ALPACON_WORKSPACE_URL }}
-          api-token: ${{ secrets.ALPACON_API_TOKEN }}
+          service-token: ${{ secrets.ALPACON_SERVICE_TOKEN }}
           target: 'prod-server'
           script: |
             cd /opt/myapp
