@@ -2,7 +2,7 @@
 
 [![GitHub marketplace](https://img.shields.io/badge/marketplace-setup--alpacon--cli-blue?logo=github)](https://github.com/marketplace/actions/setup-alpacon-cli)
 
-Install the [Alpacon](https://alpacon.io) CLI in your GitHub Actions workflow — the first step for automating server management directly from CI/CD.
+Install the [Alpacon](https://alpacon.io) CLI in your GitHub Actions workflow—the first step for automating server management directly from CI/CD.
 
 - [Official documentation](https://docs.alpacax.com/reference/actions/setup/)
 
@@ -55,9 +55,9 @@ This action requires no inputs.
 
 ## Related actions
 
-- [alpacon-exec-action](https://github.com/alpacax/alpacon-exec-action) — Execute shell commands on remote servers
-- [alpacon-cp-action](https://github.com/alpacax/alpacon-cp-action) — Copy files to/from remote servers
-- [alpacon-common-action](https://github.com/alpacax/alpacon-common-action) — Run any Alpacon CLI command
+- [alpacon-exec-action](https://github.com/alpacax/alpacon-exec-action)—Execute shell commands on remote servers
+- [alpacon-cp-action](https://github.com/alpacax/alpacon-cp-action)—Copy files to/from remote servers
+- [alpacon-common-action](https://github.com/alpacax/alpacon-common-action)—Run any Alpacon CLI command
 
 ## Resources
 
