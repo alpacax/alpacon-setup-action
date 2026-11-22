@@ -2,13 +2,13 @@
 
 [![GitHub marketplace](https://img.shields.io/badge/marketplace-setup--alpacon--cli-blue?logo=github)](https://github.com/marketplace/actions/setup-alpacon-cli)
 
-Install the [Alpacon](https://alpacon.io) CLI in your GitHub Actions workflow—the first step for automating server management directly from CI/CD.
+Install the [Alpacon](https://alpacon.io) CLI on a GitHub Actions runner. The exec, cp and common actions run through it.
 
 - [Official documentation](https://docs.alpacax.com/reference/actions/setup/)
 
 ## Why use this action?
 
-- **Zero SSH keys**—Authenticate with a service token instead of managing SSH keys across repos and servers
+- **The first step for the other Alpacon actions**—They sign in with a service token limited to what you allow, instead of an SSH key; this action installs the CLI they use
 - **One-line setup**—A single step installs the CLI; no manual downloads or version pinning needed
 - **Idempotent**—Skips installation if the CLI is already present, keeping workflows fast
 
